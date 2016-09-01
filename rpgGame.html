@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Silly Game</title>
+  <style type="text/css">
+  
+    .dogs {
+      width: 300px;
+      height: 300px;
+    }
+  </style>
+</head>
+<body>
+
+<p><span id="number"></span></p>
+
+<p><span id="yourNumber"></span></p>
+
+<div id="dogs">
+
+  </div>
+  <div class="instructions">
+    <h3>Here's how you play the game</h3>
+    </br>
+    <ol>
+      <li>You will be given a random number at the start of the game.<span>"Number To Get"</span></li>
+      <li>There are four dogs above.</li>
+      <ul>
+      <li>By clicking on a dog, you will add a specific amount of points to your total score.</li>
+      <li>You win the game by matching your total score to the random number.</li>
+      <li>You lose the game if your total score goes above the random number.</li>
+      <li>The value of each dog is hidden from you until you click on it.</li>
+      <li>Refresh the page to start over since I don't have a reset button for you.</li>
+      <!--It is  not resetting the value of the dog each time-->
+    </ol>
+  </div>
+</div>
+
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+<script type="text/javascript">
+  $( document ).ready(function() {
+    var numberToGuess = Math.floor(Math.random()*50+10);
+    var counter = 0;
+    var numbers = [10, 5, 3, 2];
+    $('#number').text(numberToGuess);
+    for (var i=0; i< numbers.length; i++){
+      var imageCrystal = $('<img>');    
+      imageCrystal.attr('data-num', numbers[i]);
+      //Missing code to make var numbers random.
+      imageCrystal.attr('src', 'file:///Users/michaelbeckman/Dropbox/Photos/IMG_1398.jpg');
+      imageCrystal.addClass('dogs');
+      $('#dogs').append(imageCrystal);
+    }
+    
+    $('.dogs').on('click', function(){
+      
+      
+      $('#yourNumber').text(counter);
+      if (counter == numberToGuess){
+        alert("You win! Refresh to play again!");
+      }else if( counter > numberToGuess){
+        alert("You lose. Refresh to play again!");
+      }
+    });
+  });
+</script>
+</body>
+</html>

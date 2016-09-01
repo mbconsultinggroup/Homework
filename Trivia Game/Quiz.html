@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Trivia Quiz</title>
+		<link type='text/css' rel='stylesheet' href='stylesheet.css'/>
+		<link rel="stylesheet" type="text/css"/>
+    <img src="">
+
+	</head>
+	<body>
+		<div id='container'>
+			<div id='title'>
+				<h1>Drumpf Trivia Quiz</h1>
+        <a href="http://drumpfinator.com/">Click to add this handy Drumfinator extension to your browser!</a>
+
+			</div>
+   			<br/>
+
+        <div id="show-number"></div>
+        
+
+        <script>
+
+          var number = 60;
+          function run(){
+            counter = setInterval(decrement, 1000);
+          }
+
+          function decrement(){
+            number--;
+            $('#show-number').html('<h1>' + number + '</h1>');
+
+            if (number === 0){
+                stop();
+                alert('Time is Up!')
+            }
+
+          function stop(){
+            clearInterval(counter);
+        }
+      }
+
+        run();
+
+    </script>
+
+  			<div id='quiz'></div>
+          <br>
+    		<div class='button' id='next'>Next</div>
+          <br>
+    		<div class='button' id='prev'>Previous</div>
+          <br>
+    	  </div>
+
+		<script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js'></script>
+		<script type='text/javascript' src='jsquiz.js'></script>
+
+	</body>
+</html>
